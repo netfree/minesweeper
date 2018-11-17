@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mine.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mine1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mine2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mine3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mine4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smiley.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smiley1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smiley2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smiley3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile4.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
