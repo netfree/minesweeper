@@ -33,7 +33,7 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.lblTime = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSmiley = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblScore
@@ -76,22 +76,23 @@
             this.lblTime.UseMnemonic = false;
             this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
             // 
-            // button1
+            // btnSmiley
             // 
-            this.button1.BackgroundImage = global::minesweeper.Properties.Resources.smiley1;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(159, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 4;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSmiley.BackgroundImage = global::minesweeper.Properties.Resources.smiley1;
+            this.btnSmiley.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSmiley.Location = new System.Drawing.Point(159, 15);
+            this.btnSmiley.Name = "btnSmiley";
+            this.btnSmiley.Size = new System.Drawing.Size(40, 40);
+            this.btnSmiley.TabIndex = 4;
+            this.btnSmiley.UseVisualStyleBackColor = true;
+            this.btnSmiley.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 411);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSmiley);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblScore);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -108,7 +109,7 @@
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSmiley;
     }
 }
 
