@@ -18,21 +18,17 @@ namespace minesweeper
             InitializeComponent();
         }
 
-        //private int ConvertItoX()
-        //{
-
-        //}
-
         Random rnd = new Random();
         Button[,] btns = new Button[101, 101];
         bool[,] isBomb = new bool[101,101];
         int[,] expanded = new int[101, 101];
         bool[,] flagged = new bool[101, 101];
 
-
+        // se apeleaza la inceperea unui joc noi
         public void InitGame()
         {
-            timer.Start();
+            // initializari
+            timer.Start(); // !Important
             global_time = 0;
             score = 0;
             nBombs = 0;
@@ -41,7 +37,7 @@ namespace minesweeper
             for (int i = 1; i <= 16; ++i)
                 for (int j = 1; j <= 16; ++j)
                 {
-                    if (rnd.Next(1, 107) == 1)
+                    if (rnd.Next(1, 7) == 1) //IMPORTANT | de aici se seteaza frecventa cu care apar bombe 
                     {
                         isBomb[i, j] = true;
                         nBombs++;
@@ -59,14 +55,27 @@ namespace minesweeper
                 }
         }
 
-        const int CONST_TOP = 50;
-        Color BTN_DEFAULT_COLOR;
+        const int CONST_TOP = 50; // constanta. reprezinta deplasamentul matricii fata de Top
+        Color BTN_DEFAULT_COLOR; 
 
+
+        //public bool CanBeBomb(int ii, int jj)
+        //{
+        //    int k = 0;
+        //    for (int i = ii - 1; i <= ii + 1; ++i)
+        //        for (int j = jj - 1; j <= jj + 1; ++j)
+        //            if (!(i == ii && j == jj))
+        //                if (ValidIndicies(i, j))
+        //                    if (isBomb[i, j])
+        //                        k++;
+
+        //    return (k < 3);
+        //}
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            // initializari
             for (int i = 1; i <= 16; ++i)
                 for (int j = 1; j <= 16; ++j)
                 {
@@ -79,8 +88,8 @@ namespace minesweeper
                     BTN_DEFAULT_COLOR = btns[i, j].BackColor;
                     btns[i, j].Top = i * 20 + CONST_TOP;
                     
-                    btns[i, j].BackgroundImageLayout = ImageLayout.Stretch;
-                    btns[i, j].MouseDown += new MouseEventHandler(Apasare);
+                    btns[i, j].BackgroundImageLayout = ImageLayout.Stretch; //asigura ca imaginea va fi pe centru
+                    btns[i, j].MouseDown += new MouseEventHandler(Apasare); // adauga event de apasare
                 }
             InitGame();
         }
@@ -88,10 +97,12 @@ namespace minesweeper
         int global_time; int nBombs;
         int left = 0;
 
+
+        /// SFARSIT JOC
         public void EndGane()
         {
             timer.Stop();
-            bool winningGame = true;
+            bool winningGame = true; // redundant
 
             for(int i = 1; i<=16; ++i)
                 for(int j = 1; j <= 16; ++j)
@@ -103,13 +114,13 @@ namespace minesweeper
 
                     if ((flagged[i, j] && isBomb[i, j] == false) || (!flagged[i, j] && isBomb[i, j]))
                     {
-                        winningGame = false;
+                        winningGame = false; // redundant
                         btns[i, j].BackColor = Color.DarkRed;
                     }
                 }
 
 
-
+            // se afiseaza intreaga tabla dupa ce ce jocul a fost pierdut
             for (int i = 1; i <= 16; ++i)
                 for (int j = 1; j <= 16; ++j)
                     if (isBomb[i, j])
@@ -131,6 +142,7 @@ namespace minesweeper
                 MessageBox.Show("BOOM BOOM! " + "Ai pierdut! TZEAPA!");
         }
 
+        /// METODA ASIGURA CA INDICII SUNT DIN MATRICE (SUNT VALIZI)
         public bool ValidIndicies (int i, int j)
         {
             if (i < 1 || j < 1 || i > 16 || j > 16)
@@ -154,10 +166,12 @@ namespace minesweeper
             return k;
         }
 
+
+        /// functia recursiva de fill
         private void Expand(int ii, int jj)
         {
             btns[ii, jj].BackColor = Color.DarkGray;
-            expanded[ii, jj]++;
+            expanded[ii, jj]++; // redundant
             score++;
             btns[ii, jj].Enabled = false;
 
@@ -166,7 +180,7 @@ namespace minesweeper
             if (CheckBombs(ii, jj) != 0)
                 btns[ii, jj].Text = CheckBombs(ii, jj).ToString();
 
-            Debug.WriteLine(ii.ToString(), ' ', jj.ToString(), "\n");
+            //Debug.WriteLine(ii.ToString(), ' ', jj.ToString(), "\n");
 
             for (int i = ii - 1; i <= ii + 1; ++i)
                 for (int j = jj - 1; j <= jj + 1; ++j)
@@ -175,9 +189,13 @@ namespace minesweeper
                             Expand(i, j);
         }
 
+
+        /// METODA CARE SE APELEAZA CAND APESI UN BUTON
         private void Apasare(object sender, MouseEventArgs e)
         {
             Button btn = (Button)sender;
+            
+            /// identifica pozitia BTN din matricea BTNS
             int i = (btn.Top - CONST_TOP) / 20;
             int j = btn.Left / 20;
             
@@ -196,8 +214,6 @@ namespace minesweeper
                     }
                     else
                         Expand(i, j);
-
-                    
 
                     lblScore.Text = (score).ToString();
                 }
@@ -219,7 +235,7 @@ namespace minesweeper
                 
             }
 
-            btnSmiley.Focus();
+            btnSmiley.Focus(); // pentru ca utilizatorul sa poata apasa din gresala pe Enter si sa piarda tot progresul
 
         }
 
@@ -230,14 +246,18 @@ namespace minesweeper
 
         private void timer_Tick(object sender, EventArgs e)
         {
+            /// tine timpul
             global_time++;
+            /// face timpul human-readable
             string cnst = ":";
             if (global_time % 60 < 10)
                 cnst += "0";
             lblTime.Text = (global_time/60).ToString() + cnst + (global_time % 60).ToString();
 
+            /// verifica daca jocul a fost castigat
+            /// !ATENTIE! validarea poate dura chiar si o secunda
+
             int all = 0;
-    
             for(int i = 1; i<=16; ++i)
                 for(int j = 1; j<=16; ++j)
                 {
@@ -245,7 +265,7 @@ namespace minesweeper
                         all++;
                 }
 
-            if (all == nBombs)
+            if (all == nBombs) // toate celulele ce puteau fi expandate au fost expandate
             {
                 timer.Stop();
                 MessageBox.Show("Ai castigat!");
