@@ -19,10 +19,13 @@ namespace minesweeper
         }
 
         Random rnd = new Random();
+        FormJoc formjoc;
         Button[,] btns = new Button[101, 101];
         bool[,] isBomb = new bool[101,101];
         int[,] expanded = new int[101, 101];
         bool[,] flagged = new bool[101, 101];
+
+        int score;
 
         // se apeleaza la inceperea unui joc noi
         public void InitGame()
@@ -96,6 +99,10 @@ namespace minesweeper
 
         int global_time; int nBombs;
         int left = 0;
+        int scor = 0;
+
+        public FormJoc Formjoc { get => formjoc; set => formjoc = value; }
+
 
 
         /// SFARSIT JOC
@@ -136,10 +143,25 @@ namespace minesweeper
                             btns[i, j].Text = CheckBombs(i, j).ToString();
                     }
 
-            
+            for (int i = 1; i <= 16; ++i)
+                for (int j = 1; j <= 16; ++j)
+                {
+                    if (flagged[i, j] && isBomb[i, j])
+                        score++;
+                    if (flagged[i, j] && !isBomb[i, j] && score > 0)
+                        score--;
+                }
 
             if (!winningGame)
-                MessageBox.Show("BOOM BOOM! " + "Ai pierdut! TZEAPA!");
+            {
+                timer.Stop();
+                btnSmiley.Enabled = false;
+                Rezultat rez = new Rezultat();
+                rez.Timp = global_time;
+                rez.Scor = score; rez.Joc = this;
+                rez.Formjoc = formjoc;
+                rez.Show();
+            }
         }
 
         /// METODA ASIGURA CA INDICII SUNT DIN MATRICE (SUNT VALIZI)
@@ -150,7 +172,7 @@ namespace minesweeper
             return true;
         }
 
-        int score = 0;
+        
 
         public int CheckBombs(int ii, int jj)
         {
@@ -211,6 +233,7 @@ namespace minesweeper
                     {
                         btn.Text = CheckBombs(i, j).ToString();
                         btns[i, j].BackColor = Color.DarkGray;
+                        score++;
                     }
                     else
                         Expand(i, j);
@@ -235,7 +258,7 @@ namespace minesweeper
                 
             }
 
-            btnSmiley.Focus(); // pentru ca utilizatorul sa poata apasa din gresala pe Enter si sa piarda tot progresul
+           btnSmiley.Focus(); // pentru ca utilizatorul sa poata apasa din gresala pe Enter si sa piarda tot progresul
 
         }
 
@@ -265,10 +288,17 @@ namespace minesweeper
                         all++;
                 }
 
+       
+
             if (all == nBombs) // toate celulele ce puteau fi expandate au fost expandate
             {
                 timer.Stop();
-                MessageBox.Show("Ai castigat!");
+                Rezultat rez = new Rezultat();
+                rez.Timp = global_time;
+                rez.Scor = score;
+                rez.Joc = this;
+                rez.Formjoc = formjoc;
+                rez.Show();
             }
 
 
