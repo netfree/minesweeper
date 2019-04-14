@@ -37,8 +37,11 @@ namespace minesweeper
         {
             // this.tabelaScorTableAdapter.FillDescScorAscTimp//(this.bDScorDataSet.tabelaScor);
 
+           
+
             this.tabelaScorTableAdapter.Inserare(formjoc.Pseudonim, timp, scor);
-            this.tabelaScorTableAdapter.Update(this.bDScorDataSet.tabelaScor); 
+            this.tabelaScorTableAdapter.Update(this.bDScorDataSet.tabelaScor);
+            formjoc.Reactualizare();
             this.Hide();
             Joc.Hide();
             formjoc.Show();
@@ -49,6 +52,8 @@ namespace minesweeper
             // TODO: This line of code loads data into the 'bDScorDataSet.tabelaScor' table. You can move, or remove it, as needed.
             this.tabelaScorTableAdapter.Fill(this.bDScorDataSet.tabelaScor);
             this.Focus();
+            label3.Text = "Felicitări " + formjoc.Pseudonim + " !";
+            this.Width = label3.Left + label3.Width + 25;
             button1.Focus();
             label4.Text += scor.ToString();
             string cnst = ":";

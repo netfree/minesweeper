@@ -24,8 +24,15 @@ namespace minesweeper
 
         //Label[,] labels = new Label[11, 4];
 
+        public void Reactualizare()
+        {
+            this.tabelaScorTableAdapter.Update(this.bDScorDataSet1.tabelaScor);
+            this.tabelaScorTableAdapter.FillDescScorAscTimp(this.bDScorDataSet1.tabelaScor);
+        }
+
         private void FormJoc_Load(object sender, EventArgs e)
         {
+          
 
             //int rows = 11, columns = 4;
 

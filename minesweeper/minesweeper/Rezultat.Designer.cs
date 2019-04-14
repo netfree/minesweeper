@@ -34,15 +34,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bDScorDataSet = new minesweeper.BDScorDataSet();
             this.tabelaScorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabelaScorTableAdapter = new minesweeper.BDScorDataSetTableAdapters.tabelaScorTableAdapter();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pseudonimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDScorDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabelaScorBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -93,21 +87,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.pseudonimDataGridViewTextBoxColumn,
-            this.timpDataGridViewTextBoxColumn,
-            this.scorDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tabelaScorBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(257, 136);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 6;
-            // 
             // bDScorDataSet
             // 
             this.bDScorDataSet.DataSetName = "BDScorDataSet";
@@ -122,36 +101,11 @@
             // 
             this.tabelaScorTableAdapter.ClearBeforeFill = true;
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // pseudonimDataGridViewTextBoxColumn
-            // 
-            this.pseudonimDataGridViewTextBoxColumn.DataPropertyName = "pseudonim";
-            this.pseudonimDataGridViewTextBoxColumn.HeaderText = "pseudonim";
-            this.pseudonimDataGridViewTextBoxColumn.Name = "pseudonimDataGridViewTextBoxColumn";
-            // 
-            // timpDataGridViewTextBoxColumn
-            // 
-            this.timpDataGridViewTextBoxColumn.DataPropertyName = "timp";
-            this.timpDataGridViewTextBoxColumn.HeaderText = "timp";
-            this.timpDataGridViewTextBoxColumn.Name = "timpDataGridViewTextBoxColumn";
-            // 
-            // scorDataGridViewTextBoxColumn
-            // 
-            this.scorDataGridViewTextBoxColumn.DataPropertyName = "scor";
-            this.scorDataGridViewTextBoxColumn.HeaderText = "scor";
-            this.scorDataGridViewTextBoxColumn.Name = "scorDataGridViewTextBoxColumn";
-            // 
             // Rezultat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 268);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(513, 268);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -160,7 +114,6 @@
             this.Name = "Rezultat";
             this.Text = "Rezultat";
             this.Load += new System.EventHandler(this.Rezultat_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDScorDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabelaScorBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -174,13 +127,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private BDScorDataSet bDScorDataSet;
         private System.Windows.Forms.BindingSource tabelaScorBindingSource;
         private BDScorDataSetTableAdapters.tabelaScorTableAdapter tabelaScorTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pseudonimDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scorDataGridViewTextBoxColumn;
     }
 }

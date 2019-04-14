@@ -35,14 +35,13 @@
             this.tabelaScorTableAdapter = new minesweeper.BDScorDataSetTableAdapters.tabelaScorTableAdapter();
             this.buttonJocNou = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pseudonimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabelaScorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bDScorDataSet1 = new minesweeper.BDScorDataSet();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.scorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pseudonimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabelaScorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDScorDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -81,45 +80,16 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.pseudonimDataGridViewTextBoxColumn,
+            this.scorDataGridViewTextBoxColumn,
             this.timpDataGridViewTextBoxColumn,
-            this.scorDataGridViewTextBoxColumn});
+            this.pseudonimDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tabelaScorBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(55, 124);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 54);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(494, 107);
+            this.dataGridView1.Size = new System.Drawing.Size(345, 356);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pseudonimDataGridViewTextBoxColumn
-            // 
-            this.pseudonimDataGridViewTextBoxColumn.DataPropertyName = "pseudonim";
-            this.pseudonimDataGridViewTextBoxColumn.HeaderText = "pseudonim";
-            this.pseudonimDataGridViewTextBoxColumn.Name = "pseudonimDataGridViewTextBoxColumn";
-            this.pseudonimDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // timpDataGridViewTextBoxColumn
-            // 
-            this.timpDataGridViewTextBoxColumn.DataPropertyName = "timp";
-            this.timpDataGridViewTextBoxColumn.HeaderText = "timp";
-            this.timpDataGridViewTextBoxColumn.Name = "timpDataGridViewTextBoxColumn";
-            this.timpDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // scorDataGridViewTextBoxColumn
-            // 
-            this.scorDataGridViewTextBoxColumn.DataPropertyName = "scor";
-            this.scorDataGridViewTextBoxColumn.HeaderText = "scor";
-            this.scorDataGridViewTextBoxColumn.Name = "scorDataGridViewTextBoxColumn";
-            this.scorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tabelaScorBindingSource1
             // 
@@ -142,11 +112,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 50);
+            this.label1.Location = new System.Drawing.Point(226, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
+            // 
+            // scorDataGridViewTextBoxColumn
+            // 
+            this.scorDataGridViewTextBoxColumn.DataPropertyName = "scor";
+            this.scorDataGridViewTextBoxColumn.HeaderText = "scor";
+            this.scorDataGridViewTextBoxColumn.Name = "scorDataGridViewTextBoxColumn";
+            this.scorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // timpDataGridViewTextBoxColumn
+            // 
+            this.timpDataGridViewTextBoxColumn.DataPropertyName = "timp";
+            this.timpDataGridViewTextBoxColumn.HeaderText = "timp";
+            this.timpDataGridViewTextBoxColumn.Name = "timpDataGridViewTextBoxColumn";
+            this.timpDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pseudonimDataGridViewTextBoxColumn
+            // 
+            this.pseudonimDataGridViewTextBoxColumn.DataPropertyName = "pseudonim";
+            this.pseudonimDataGridViewTextBoxColumn.HeaderText = "pseudonim";
+            this.pseudonimDataGridViewTextBoxColumn.Name = "pseudonimDataGridViewTextBoxColumn";
+            this.pseudonimDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FormJoc
             // 
@@ -179,11 +170,10 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private BDScorDataSet bDScorDataSet1;
         private System.Windows.Forms.BindingSource tabelaScorBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pseudonimDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scorDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pseudonimDataGridViewTextBoxColumn;
     }
 }
