@@ -32,8 +32,10 @@ namespace minesweeper
 
         private void FormJoc_Load(object sender, EventArgs e)
         {
-          
+            textBox1.TextAlign = HorizontalAlignment.Center;
+            textBox1.Text = "Anonim";
 
+            
             //int rows = 11, columns = 4;
 
             //for (int i = 0; i < rows; i++)
@@ -107,6 +109,27 @@ namespace minesweeper
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormInformatii forminfo = new FormInformatii();
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(FormInformatii))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+
+            forminfo.Show();
+        }
+
+        private void textBox1_Resize(object sender, EventArgs e)
+        {
 
         }
     }
