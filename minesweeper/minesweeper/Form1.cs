@@ -27,11 +27,10 @@ namespace minesweeper
 
         int score;
 
-        // se apeleaza la inceperea unui joc noi
+        // se apeleaza la inceperea unui joc nou
         public void InitGame()
         {
-            // initializari
-            timer.Start(); // !Important
+            timer.Start();
             global_time = 0;
             score = 0;
             nBombs = 0;
